@@ -20,7 +20,7 @@ class XCFSearchBar: UISearchBar,UISearchBarDelegate {
     class func searchBarWithPlaceholder(placeholder:String)->XCFSearchBar{
         let searchBar = XCFSearchBar()
         searchBar.delegate = searchBar
-        searchBar.tintColor = UIColor.init(red: 192/255.0, green: 192/255.0, blue: 192/255.0, alpha: 1)
+        searchBar.tintColor = XCFSearchBarTintColor
         searchBar.placeholder = placeholder
         searchBar.setImage(UIImage.init(named: "searchIcon"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
         

@@ -40,7 +40,7 @@ class XCFNavigationController: UINavigationController {
     //MARK:跳转控制器的处理
     override func pushViewController(viewController: UIViewController, animated: Bool) {
         if (self.viewControllers.count > 0) {
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "Goback"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(XCFNavigationController.pop))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "backStretchBackgroundNormal"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(XCFNavigationController.pop))
         }
         super.pushViewController(viewController, animated: animated)
     }
