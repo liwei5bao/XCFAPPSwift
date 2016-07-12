@@ -8,11 +8,11 @@
 
 import UIKit
 
-class XCFMailboxController: UIViewController {
+class XCFMailboxController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

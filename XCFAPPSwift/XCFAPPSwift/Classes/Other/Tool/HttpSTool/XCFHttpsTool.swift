@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import SVProgressHUD
 ///请求错误不同类型分类,看公司
 public enum HTTPRequestError:ErrorType{
     case None
@@ -53,9 +53,10 @@ public typealias HTTPRequestJSONHandler = (responseObject: JSON?, error: HTTPReq
 
 class XCFHttpsTool: NSObject {
     class func dataRequest(method m: Method, urlString url: URLStringConvertible, parameter param: [String : AnyObject]?, complectionHandler: HTTPRequestHandler?) -> Request{
-        
+        SVProgressHUD.showWithStatus("正在拼命加载中...")
         let req = Alamofire.request(m.alamofireMethod, url, parameters: param, encoding: .URL, headers: nil)
         req.responseJSON { (resp) -> Void in
+            SVProgressHUD.dismiss()
             if resp.result.isSuccess {
                 if let handler = complectionHandler {
                     handler(responseObject: resp.result.value, error: nil)

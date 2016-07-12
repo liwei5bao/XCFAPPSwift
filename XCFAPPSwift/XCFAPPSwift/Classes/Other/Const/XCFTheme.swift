@@ -4,7 +4,7 @@
 //
 //  Created by kouclo on 16/7/11.
 //  Copyright © 2016年 liwei. All rights reserved.
-//
+//  项目中的一些设置
 
 import UIKit
 

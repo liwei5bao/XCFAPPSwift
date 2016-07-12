@@ -86,7 +86,6 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-XCFAPPSwift/Alamofire.framework"
   install_framework "Pods-XCFAPPSwift/MJExtension.framework"
-  install_framework "Pods-XCFAPPSwift/MJRefresh.framework"
   install_framework "Pods-XCFAPPSwift/Masonry.framework"
   install_framework "Pods-XCFAPPSwift/SDWebImage.framework"
   install_framework "Pods-XCFAPPSwift/SVProgressHUD.framework"
@@ -96,7 +95,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-XCFAPPSwift/Alamofire.framework"
   install_framework "Pods-XCFAPPSwift/MJExtension.framework"
-  install_framework "Pods-XCFAPPSwift/MJRefresh.framework"
   install_framework "Pods-XCFAPPSwift/Masonry.framework"
   install_framework "Pods-XCFAPPSwift/SDWebImage.framework"
   install_framework "Pods-XCFAPPSwift/SVProgressHUD.framework"
