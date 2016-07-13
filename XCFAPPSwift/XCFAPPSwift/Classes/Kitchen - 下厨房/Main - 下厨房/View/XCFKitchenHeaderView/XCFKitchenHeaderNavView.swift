@@ -12,7 +12,7 @@ class XCFKitchenHeaderNavView: UIView {
     ///按钮的宽
     let navBtnW:CGFloat = 80 * scaleSize
     ///按钮的高
-    let navBtnH:CGFloat = 100 * scaleSize
+    let navBtnH:CGFloat = 80 * scaleSize
     ///按钮的点击事件
     var navBtnClick:((index:Int)->())?
     
@@ -37,7 +37,7 @@ class XCFKitchenHeaderNavView: UIView {
                 tempView.frame = CGRect.init(x: tempViewX, y: tempViewY, width: tempViewW, height: navBtnH)
                 self.addSubview(tempView)
                 //创建导航按钮放在空view里
-                let navBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: navBtnW, height: navBtnH))
+                let navBtn = XCFKitchenNavBtn.init(frame: CGRect.init(x: 0, y: 0, width: navBtnW, height: navBtnH))
                 if (model.picurl != nil) {
                    navBtn.sd_setImageWithURL(NSURL.init(string: model.picurl!), forState: UIControlState.Normal)
                 }
@@ -46,7 +46,16 @@ class XCFKitchenHeaderNavView: UIView {
                 }
                 tempView.addSubview(navBtn)
                 navBtn.center = CGPoint.init(x: tempViewW * 0.5, y: navBtnH * 0.5)
+                navBtn.tag = i
+                navBtn.addTarget(self, action: #selector(XCFKitchenHeaderNavView.navBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             }
+        }
+    }
+    
+    func navBtnClick(btn:XCFKitchenNavBtn){
+    
+        if (self.navBtnClick != nil) {
+            self.navBtnClick!(index: btn.tag)
         }
     }
     

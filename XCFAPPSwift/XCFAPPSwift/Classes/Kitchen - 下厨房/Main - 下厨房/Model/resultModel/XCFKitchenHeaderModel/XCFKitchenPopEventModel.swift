@@ -18,7 +18,7 @@ class XCFKitchenPopEventModel: NSObject {
     ///图片地址
     var thumbnail_280:String?
     
-    override static func mj_replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
+    override class func mj_replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         return ["ID":"id","thumbnail_280":"dishes.dishes[0].thumbnail_280"]
     }
     

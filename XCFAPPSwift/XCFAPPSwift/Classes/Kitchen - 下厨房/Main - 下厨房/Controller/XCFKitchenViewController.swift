@@ -67,17 +67,21 @@ class XCFKitchenViewController: UITableViewController{
     }
     //MARK:- 初始化headerView
     private func setupHeaderView(){
-//      let headerView = XCFKitchenHeaderTopV.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 130 * scaleSize), pop_recipe_picurl: self.headerViewMolde!.pop_recipe_picurl!) { (index) in
-//        
-//            print(index)
-//        }
-        
-        let headerView1 = XCFKitchenHeaderNavView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 80 * scaleSize), navModel: self.headerViewMolde!) { (index) in
-            
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: XCFKitchenHeaderViewH))
+        let headerViewTop = XCFKitchenHeaderTopV.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 130 * scaleSize), pop_recipe_picurl: self.headerViewMolde!.pop_recipe_picurl!) { (index) in
+            print(index)
         }
-        
-        self.tableView.tableHeaderView?.height = 80 * scaleSize
-        self.tableView.tableHeaderView = headerView1
+        let headerViewNav = XCFKitchenHeaderNavView.init(frame: CGRect.init(x: 0, y: headerViewTop.bottom, width: screenWidth, height: 80 * scaleSize), navModel: self.headerViewMolde!) { (index) in
+            print(index)
+        }
+        let headerViewBottom = XCFKitchenHeaderScrollowView.init(frame: CGRect.init(x: 0, y: headerViewNav.bottom, width: screenWidth, height: 80 * scaleSize), pageModel: self.headerViewMolde!.pop_events!) { (index) in
+            print(index)
+        }
+        headerView.addSubview(headerViewTop)
+        headerView.addSubview(headerViewNav)
+        headerView.addSubview(headerViewBottom)
+        self.tableView.tableHeaderView?.height = XCFKitchenHeaderViewH
+        self.tableView.tableHeaderView = headerView
         self.tableView.reloadData()
     }
     
@@ -101,7 +105,7 @@ class XCFKitchenViewController: UITableViewController{
         //请求导航数据
         weak var wself = self
         XCFHttpsTool.dataRequest(method:.GET, urlString: XCFRequestKitchenNav, parameter: nil) { (responseObject, error) in
-            print(responseObject)
+//            print(responseObject)
             if (error != nil){
                 SVProgressHUD.showErrorWithStatus(XCFRequestError)
             }else{

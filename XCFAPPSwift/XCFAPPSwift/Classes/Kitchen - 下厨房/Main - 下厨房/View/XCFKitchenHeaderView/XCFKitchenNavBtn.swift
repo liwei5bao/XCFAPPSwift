@@ -16,7 +16,7 @@ class XCFKitchenNavBtn: UIButton {
         self.titleLabel?.font = UIFont.systemFontOfSize(12 * scaleSize)
         self.setTitleColor(UIColor.colorWithHexString("#37372e"), forState: UIControlState.Normal)
         self.titleLabel?.textAlignment = NSTextAlignment.Center
-        self.imageView?.contentMode = UIViewContentMode.Center
+        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,13 +26,14 @@ class XCFKitchenNavBtn: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.imageView?.left = 0
         self.imageView?.top = 0
-        self.imageView?.width = self.width
-        self.imageView?.height = self.height * 3 / 4
+        self.imageView?.width = self.width * 0.7
+        self.imageView?.height = self.height * 3 / 4 * 0.7
+        self.imageView?.centerX = self.width * 0.5
         self.titleLabel?.left  = 0
-        self.titleLabel?.top = (self.imageView?.height)! - self.height/20
+        self.titleLabel?.top = (self.imageView?.height)! - 10 * scaleSize
         self.titleLabel?.width = self.width
         self.titleLabel?.height = self.height * 1 / 4
+        
     }
 }

@@ -36,13 +36,14 @@ class XCFKitchenHeaderTopV: UIView {
             let imageButton = UIButton.init(type: UIButtonType.Custom)
             imageButton.sd_setBackgroundImageWithURL(NSURL.init(string: pop_recipe_picurl), forState: UIControlState.Normal)
             imageButton.frame = CGRect.init(x: imageButtonX, y: imageButtonY, width: imageButtonW, height: imageButtonH)
-            imageButton.tag = i
             self.addSubview(imageButton)
-            imageButton.addTarget(self, action: #selector(XCFKitchenHeaderTopV.imageButtonClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
             //添加一层蒙版
-            let menuView = UIView.init(frame: imageButton.bounds)
-            menuView.backgroundColor = XCFCoverViewColor
-            imageButton.addSubview(menuView)
+            let menuBtn = UIButton.init(frame: imageButton.bounds)
+            menuBtn.tag = i
+            menuBtn.backgroundColor = XCFCoverViewColor
+            imageButton.addSubview(menuBtn)
+            menuBtn.addTarget(self, action: #selector(XCFKitchenHeaderTopV.imageButtonClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             //文字显示
             let titleL = UILabel()
             if (i == 0) {
@@ -61,7 +62,6 @@ class XCFKitchenHeaderTopV: UIView {
     //按钮的点击
     func imageButtonClick(btn:UIButton){
         if ((imageClick) != nil) {imageClick!(index: btn.tag)}
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

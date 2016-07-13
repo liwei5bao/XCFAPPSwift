@@ -17,3 +17,7 @@ let XCFTabBarNormalColor = UIColor.colorWithRGB(170, g: 170, b: 170)       //Tab
 let XCFTabBarSelectColor = UIColor.colorWithRGB(249, g: 103, b: 80)        //TabBar的选中的颜色
 let XCFSearchBarTintColor = UIColor.colorWithRGB(192, g: 192, b: 192)      //搜索按钮的背景色
 
+/**
+ *  全局的placeholderImage
+ */
+let placeholderImage = UIImage.init(named: "placeholderImage")
