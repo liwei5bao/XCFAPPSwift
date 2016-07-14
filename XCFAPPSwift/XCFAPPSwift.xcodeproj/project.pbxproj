@@ -57,6 +57,8 @@
 		369BF7ED1D33782A00E0F015 /* XCFHttpsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BF4E41D33782A00E0F015 /* XCFHttpsTool.swift */; };
 		369BF7EE1D33782A00E0F015 /* OtherUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BF4E51D33782A00E0F015 /* OtherUtil.swift */; };
 		369BF7EF1D33782A00E0F015 /* XCFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BF4E71D33782A00E0F015 /* XCFSearchBar.swift */; };
+		36CB977B1D3743E50055F067 /* XCFKitchenIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CB977A1D3743E50055F067 /* XCFKitchenIssuesModel.swift */; };
+		36CB977D1D375B890055F067 /* XCFKitchenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CB977C1D375B890055F067 /* XCFKitchenItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		369BF4E41D33782A00E0F015 /* XCFHttpsTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFHttpsTool.swift; sourceTree = "<group>"; };
 		369BF4E51D33782A00E0F015 /* OtherUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUtil.swift; sourceTree = "<group>"; };
 		369BF4E71D33782A00E0F015 /* XCFSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFSearchBar.swift; sourceTree = "<group>"; };
+		36CB977A1D3743E50055F067 /* XCFKitchenIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenIssuesModel.swift; sourceTree = "<group>"; };
+		36CB977C1D375B890055F067 /* XCFKitchenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenItems.swift; sourceTree = "<group>"; };
 		6A9BE17210EDE6F14EB58B01 /* Pods-XCFAPPSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCFAPPSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCFAPPSwift/Pods-XCFAPPSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F5575560961FEE4BFA4F4F92 /* Pods-XCFAPPSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCFAPPSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCFAPPSwift/Pods-XCFAPPSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -666,6 +670,7 @@
 		369BEB411D33782800E0F015 /* resultModel */ = {
 			isa = PBXGroup;
 			children = (
+				36CB97751D373EA70055F067 /* XCFKitchenCellModel */,
 				367F04C61D34C87E0037CAB4 /* XCFKitchenHeaderModel */,
 			);
 			path = resultModel;
@@ -681,6 +686,7 @@
 		369BEB431D33782800E0F015 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36CB97721D373C560055F067 /* XCFKitchenCell */,
 				3614D2581D35D8AC00F554F0 /* XCFKitchenHeaderView */,
 			);
 			path = View;
@@ -1122,6 +1128,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		36CB97721D373C560055F067 /* XCFKitchenCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XCFKitchenCell;
+			sourceTree = "<group>";
+		};
+		36CB97751D373EA70055F067 /* XCFKitchenCellModel */ = {
+			isa = PBXGroup;
+			children = (
+				36CB977A1D3743E50055F067 /* XCFKitchenIssuesModel.swift */,
+				36CB977C1D375B890055F067 /* XCFKitchenItems.swift */,
+			);
+			path = XCFKitchenCellModel;
+			sourceTree = "<group>";
+		};
 		4C8D27FE32F043999DAF959D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,6 +1284,7 @@
 				367F04B01D34B9F80037CAB4 /* MJRefreshBackStateFooter.m in Sources */,
 				3614D2641D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift in Sources */,
 				367F04D51D34D3EE0037CAB4 /* XCFGetUserInfo.m in Sources */,
+				36CB977D1D375B890055F067 /* XCFKitchenItems.swift in Sources */,
 				369BF4F81D33782A00E0F015 /* XCFTabBarController.swift in Sources */,
 				369BF4F11D33782A00E0F015 /* XCFMailboxController.swift in Sources */,
 				36354FA51D349DF000084D1E /* AppDelegate.swift in Sources */,
@@ -1286,6 +1309,7 @@
 				3614D2621D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift in Sources */,
 				367F04A71D34B9F80037CAB4 /* MJRefreshBackFooter.m in Sources */,
 				367F04A91D34B9F80037CAB4 /* MJRefreshFooter.m in Sources */,
+				36CB977B1D3743E50055F067 /* XCFKitchenIssuesModel.swift in Sources */,
 				367F04CC1D34C87E0037CAB4 /* XCFKitchenNavsModel.swift in Sources */,
 				369BF4F41D33782A00E0F015 /* UIImage+MJ.m in Sources */,
 				367F04AA1D34B9F80037CAB4 /* MJRefreshHeader.m in Sources */,

@@ -31,7 +31,7 @@ class XCFKitchenNavBtn: UIButton {
         self.imageView?.height = self.height * 3 / 4 * 0.7
         self.imageView?.centerX = self.width * 0.5
         self.titleLabel?.left  = 0
-        self.titleLabel?.top = (self.imageView?.height)! - 10 * scaleSize
+        self.titleLabel?.top = (self.imageView?.height)! - 5 * scaleSize
         self.titleLabel?.width = self.width
         self.titleLabel?.height = self.height * 1 / 4
         

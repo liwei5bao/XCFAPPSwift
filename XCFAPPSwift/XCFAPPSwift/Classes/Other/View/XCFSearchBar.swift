@@ -27,7 +27,7 @@ class XCFSearchBar: UISearchBar,UISearchBarDelegate {
         let searchBarSub = searchBar.subviews[0]
         for subView in searchBarSub.subviews {
             if (subView.isKindOfClass(NSClassFromString("UISearchBarTextField")!)) {
-                subView.backgroundColor = UIColor.init(red: 247/255.0, green: 247/255.0, blue: 240/255.0, alpha: 1)
+                subView.backgroundColor = UIColor.groupTableViewBackgroundColor()//init(red: 247/255.0, green: 247/255.0, blue: 240/255.0, alpha: 1)
             }
             
             if (subView.isKindOfClass(NSClassFromString("UISearchBarBackground")!)) {

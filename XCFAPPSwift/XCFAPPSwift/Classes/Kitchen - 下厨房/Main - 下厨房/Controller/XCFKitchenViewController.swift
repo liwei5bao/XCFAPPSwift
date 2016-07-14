@@ -93,19 +93,38 @@ class XCFKitchenViewController: UITableViewController{
     }
     
     func headerRefresh(){
-        self.tableView.mj_header.endRefreshing()
+        self.loadNewData()
     }
     
     func footerRefresh(){
         self.tableView.mj_footer.endRefreshing()
     }
     
-    ////MARK:加载网络数据的方法
+    //MARK:加载网络数据的方法
+    
+    ///请求最新的列表数据
+    private func loadNewData(){
+        weak var wself = self
+        XCFHttpsTool.dataRequest(method:.GET, urlString: XCFRequestKitchenListNew, parameter: nil) { (responseObject, error) in
+            print(responseObject)
+            if (error != nil){
+                SVProgressHUD.showErrorWithStatus(XCFRequestError)
+            }else{
+                if responseObject != nil{
+//                    if (responseObject!.isKindOfClass(NSDictionary.self)){
+//                        let model = XCFKitchenHeaderModel.mj_objectWithKeyValues((responseObject as! NSDictionary)["content"])
+//                        self.headerViewMolde = model
+//                        wself?.setupHeaderView()
+//                    }
+                }
+            }
+            self.tableView.mj_header.endRefreshing()
+        }
+    }
+    ///请求导航数据
     private func loadTableViewHeaderData(){
-        //请求导航数据
         weak var wself = self
         XCFHttpsTool.dataRequest(method:.GET, urlString: XCFRequestKitchenNav, parameter: nil) { (responseObject, error) in
-//            print(responseObject)
             if (error != nil){
                 SVProgressHUD.showErrorWithStatus(XCFRequestError)
             }else{
@@ -114,7 +133,6 @@ class XCFKitchenViewController: UITableViewController{
                         let model = XCFKitchenHeaderModel.mj_objectWithKeyValues((responseObject as! NSDictionary)["content"])
                         self.headerViewMolde = model
                         wself?.setupHeaderView()
-                        print((model.pop_events?.events?.lastObject as! XCFKitchenPopEventModel).name)
                     }
                 }
             }
@@ -125,16 +143,13 @@ class XCFKitchenViewController: UITableViewController{
     ///创建菜谱
     func createRecipe(){
         
-        
     }
     
     ///菜篮子
     func buylist(){
     
-        
     }
 
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         UIApplication.sharedApplication().keyWindow?.endEditing(true)
     }
