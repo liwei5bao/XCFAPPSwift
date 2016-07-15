@@ -10,7 +10,7 @@ import UIKit
 
 class XCFKitchenIssuesModel: NSObject {
     ///菜谱数量
-    var items_count:NSInteger?
+    var items_count:NSString?
     ///标题
     var title:String?
     ///菜谱数组

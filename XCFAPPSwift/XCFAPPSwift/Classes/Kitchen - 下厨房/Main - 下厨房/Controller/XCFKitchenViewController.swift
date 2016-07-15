@@ -10,12 +10,18 @@ import UIKit
 import SVProgressHUD
 import MJExtension
 import SDWebImage
-class XCFKitchenViewController: UITableViewController{
+class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     ///cell的重用标识符
     let cellIdentifier = "XCFKitchenViewControllerCell"
     ///headerView的模型
     var headerViewMolde:XCFKitchenHeaderModel?
-    
+    ///列表模型
+    var dataModelArray:NSMutableArray = NSMutableArray()
+    ///tableView
+    lazy var mianTableView:UITableView? = {
+        let table = UITableView.init(frame: self.view.bounds, style: UITableViewStyle.Grouped)
+        return table
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavgationBar()
@@ -42,29 +48,37 @@ class XCFKitchenViewController: UITableViewController{
     
     //MARK:-初始化tableView
     private func setupTableView(){
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.view.addSubview(mianTableView!)
+        self.mianTableView!.delegate = self
+        self.mianTableView?.dataSource = self
+        self.mianTableView!.separatorStyle = UITableViewCellSeparatorStyle.None
         self.view.backgroundColor = XCFGlobalBackgroundColor
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.mianTableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
-    ////MARK:tableViewDeledate
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
+    //MARK:tableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        self.mianTableView?.mj_footer.hidden = (self.dataModelArray.count == 0)
+        return self.dataModelArray.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return 5
+        let model:XCFKitchenIssuesModel = self.dataModelArray[section] as! XCFKitchenIssuesModel
+        return (model.items_count?.integerValue != nil) ? model.items_count!.integerValue : 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel?.text = "second\(indexPath.section)row\(indexPath.row)"
         return cell
     }
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //MARK:tableViewDeledate
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
     }
+    
     //MARK:- 初始化headerView
     private func setupHeaderView(){
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: XCFKitchenHeaderViewH))
@@ -80,16 +94,16 @@ class XCFKitchenViewController: UITableViewController{
         headerView.addSubview(headerViewTop)
         headerView.addSubview(headerViewNav)
         headerView.addSubview(headerViewBottom)
-        self.tableView.tableHeaderView?.height = XCFKitchenHeaderViewH
-        self.tableView.tableHeaderView = headerView
-        self.tableView.reloadData()
+        self.mianTableView!.tableHeaderView?.height = XCFKitchenHeaderViewH
+        self.mianTableView!.tableHeaderView = headerView
+        self.mianTableView!.reloadData()
     }
     
     ///MARK:-初始化上拉和下拉
     private func setupHeaderFooterRefresh(){
-        self.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(XCFKitchenViewController.headerRefresh))
-        self.tableView.mj_header.beginRefreshing()
-        self.tableView.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(XCFKitchenViewController.footerRefresh))
+        self.mianTableView!.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(XCFKitchenViewController.headerRefresh))
+        self.mianTableView!.mj_header.beginRefreshing()
+        self.mianTableView!.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(XCFKitchenViewController.footerRefresh))
     }
     
     func headerRefresh(){
@@ -97,7 +111,7 @@ class XCFKitchenViewController: UITableViewController{
     }
     
     func footerRefresh(){
-        self.tableView.mj_footer.endRefreshing()
+        self.mianTableView!.mj_footer.endRefreshing()
     }
     
     //MARK:加载网络数据的方法
@@ -106,19 +120,17 @@ class XCFKitchenViewController: UITableViewController{
     private func loadNewData(){
         weak var wself = self
         XCFHttpsTool.dataRequest(method:.GET, urlString: XCFRequestKitchenListNew, parameter: nil) { (responseObject, error) in
-            print(responseObject)
+//            print(responseObject)
             if (error != nil){
                 SVProgressHUD.showErrorWithStatus(XCFRequestError)
             }else{
                 if responseObject != nil{
-//                    if (responseObject!.isKindOfClass(NSDictionary.self)){
-//                        let model = XCFKitchenHeaderModel.mj_objectWithKeyValues((responseObject as! NSDictionary)["content"])
-//                        self.headerViewMolde = model
-//                        wself?.setupHeaderView()
-//                    }
+                    let modelArray = XCFKitchenIssuesModel.mj_objectArrayWithKeyValuesArray(((responseObject as! NSDictionary)["content"] as! NSDictionary)["issues"])
+                    wself!.dataModelArray = modelArray
+                    wself?.mianTableView!.reloadData()
                 }
             }
-            self.tableView.mj_header.endRefreshing()
+            wself!.mianTableView!.mj_header.endRefreshing()
         }
     }
     ///请求导航数据
