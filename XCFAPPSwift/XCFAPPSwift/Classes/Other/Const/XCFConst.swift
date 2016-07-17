@@ -48,5 +48,6 @@ let XCFRecipeCellMarginTitle2Desc:CGFloat = 8;
 let XCFRecipeListViewMarginHeadTitle:CGFloat = 20;
 /** 下厨房 - 菜单 - 标题距离作者名字的间距 */
 let XCFRecipeListViewMarginHeadTitle2Name:CGFloat = 10;
-
+/** 下厨房 - 菜单 - lable的最大宽度*/
+let XCFRecipeCellLableMaxWidth:CGFloat = screenWidth - 40
 

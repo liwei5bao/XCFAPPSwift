@@ -31,11 +31,12 @@ class XCFKitchenContentsModel: NSObject {
     ///作者
     var author:XCFKitchenAuthorModel?
     ///做过的人数
-    var n_cooked:NSInteger?
+    var n_cooked:NSNumber?
     ///
-    var n_dishes:NSInteger?
+    var n_dishes:NSNumber?
     ///分数
-    var score:NSInteger?
+    var score:NSNumber?
     ///食谱id
     var recipe_id:String?
+    
 }

@@ -13,6 +13,8 @@ import SDWebImage
 class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     ///cell的重用标识符
     let cellIdentifier = "XCFKitchenViewControllerCell"
+    let cellSectionHeaderIdentifier = "XCFSectionHeaderIdentifier"
+    let sectionHeaderHeight:CGFloat = 40
     ///headerView的模型
     var headerViewMolde:XCFKitchenHeaderModel?
     ///列表模型
@@ -52,8 +54,9 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
         self.mianTableView!.delegate = self
         self.mianTableView?.dataSource = self
         self.mianTableView!.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.view.backgroundColor = XCFGlobalBackgroundColor
-        self.mianTableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.mianTableView!.backgroundColor = UIColor.colorWithHexString(XCFCellMarginColor)
+        self.mianTableView!.registerNib(UINib.init(nibName:"XCFKitchenRecipeCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.mianTableView?.registerClass(XCFSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: cellSectionHeaderIdentifier)
     }
     
     //MARK:tableViewDataSource
@@ -69,16 +72,39 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = "second\(indexPath.section)row\(indexPath.row)"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! XCFKitchenRecipeCell
+        let issuseM = self.dataModelArray[indexPath.section] as! XCFKitchenIssuesModel
+        let itemsModel = issuseM.items![indexPath.row] as! XCFKitchenItems
+        cell.kitchenItemsModel = itemsModel
         return cell
     }
     //MARK:tableViewDeledate
-    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 260
+//    }
+//
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 40
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! XCFKitchenRecipeCell
+        let issuseM = self.dataModelArray[indexPath.section] as! XCFKitchenIssuesModel
+        let itemsModel = issuseM.items![indexPath.row] as! XCFKitchenItems
+    
+        return cell.cellHeightWithModel(itemsModel)
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let hederView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(cellSectionHeaderIdentifier) as! XCFSectionHeaderView
+        let issuesModel = self.dataModelArray[section] as? XCFKitchenIssuesModel
+        hederView.dateText?.text = issuesModel?.title
+        return hederView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sectionHeaderHeight
+    }
+
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
     //MARK:- 初始化headerView
     private func setupHeaderView(){
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: XCFKitchenHeaderViewH))
@@ -111,7 +137,7 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func footerRefresh(){
-        self.mianTableView!.mj_footer.endRefreshing()
+        self.loadNewData()
     }
     
     //MARK:加载网络数据的方法
@@ -120,13 +146,13 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
     private func loadNewData(){
         weak var wself = self
         XCFHttpsTool.dataRequest(method:.GET, urlString: XCFRequestKitchenListNew, parameter: nil) { (responseObject, error) in
-//            print(responseObject)
+            print(responseObject)
             if (error != nil){
                 SVProgressHUD.showErrorWithStatus(XCFRequestError)
             }else{
                 if responseObject != nil{
                     let modelArray = XCFKitchenIssuesModel.mj_objectArrayWithKeyValuesArray(((responseObject as! NSDictionary)["content"] as! NSDictionary)["issues"])
-                    wself!.dataModelArray = modelArray
+                    wself!.dataModelArray.addObjectsFromArray(modelArray as [AnyObject])
                     wself?.mianTableView!.reloadData()
                 }
             }

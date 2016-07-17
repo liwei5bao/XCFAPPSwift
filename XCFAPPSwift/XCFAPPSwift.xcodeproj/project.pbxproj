@@ -64,6 +64,7 @@
 		36CB97831D376A0F0055F067 /* XCFKitchenAuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CB97821D376A0F0055F067 /* XCFKitchenAuthorModel.swift */; };
 		36D2F1441D38D2F900090C60 /* XCFKitchenRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F1421D38D2F900090C60 /* XCFKitchenRecipeCell.swift */; };
 		36D2F1451D38D2F900090C60 /* XCFKitchenRecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D2F1431D38D2F900090C60 /* XCFKitchenRecipeCell.xib */; };
+		D06415541D39C9F4000EB3C2 /* XCFSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06415531D39C9F4000EB3C2 /* XCFSectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		36D2F1421D38D2F900090C60 /* XCFKitchenRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenRecipeCell.swift; sourceTree = "<group>"; };
 		36D2F1431D38D2F900090C60 /* XCFKitchenRecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCFKitchenRecipeCell.xib; sourceTree = "<group>"; };
 		6A9BE17210EDE6F14EB58B01 /* Pods-XCFAPPSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCFAPPSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCFAPPSwift/Pods-XCFAPPSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		D06415531D39C9F4000EB3C2 /* XCFSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFSectionHeaderView.swift; sourceTree = "<group>"; };
 		F5575560961FEE4BFA4F4F92 /* Pods-XCFAPPSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCFAPPSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCFAPPSwift/Pods-XCFAPPSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1143,6 +1145,7 @@
 			children = (
 				36D2F1421D38D2F900090C60 /* XCFKitchenRecipeCell.swift */,
 				36D2F1431D38D2F900090C60 /* XCFKitchenRecipeCell.xib */,
+				D06415531D39C9F4000EB3C2 /* XCFSectionHeaderView.swift */,
 			);
 			path = XCFKitchenCell;
 			sourceTree = "<group>";
@@ -1204,6 +1207,7 @@
 				TargetAttributes = {
 					369BEAFF1D3377A300E0F015 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = G759FVJM2V;
 					};
 				};
 			};
@@ -1293,6 +1297,7 @@
 			files = (
 				369BF4EF1D33782A00E0F015 /* XCFBazaarController.swift in Sources */,
 				3614D25D1D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift in Sources */,
+				D06415541D39C9F4000EB3C2 /* XCFSectionHeaderView.swift in Sources */,
 				367F04CE1D34C87E0037CAB4 /* XCFKitchenPopEventsModel.swift in Sources */,
 				367F04AB1D34B9F80037CAB4 /* MJRefreshAutoGifFooter.m in Sources */,
 				367F04B31D34B9F80037CAB4 /* MJRefreshStateHeader.m in Sources */,
@@ -1438,11 +1443,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XCFAPPSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kouclo.XCFAPPSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XCFAPPSwift/Classes/BridgeHeader.h";
 			};
 			name = Debug;
@@ -1453,11 +1461,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XCFAPPSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kouclo.XCFAPPSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XCFAPPSwift/Classes/BridgeHeader.h";
 			};
 			name = Release;
