@@ -18,7 +18,7 @@ class XCFKitchenRecipeCell: UITableViewCell {
     @IBOutlet weak var imageTitle: UILabel!
     @IBOutlet weak var imageDetaileTitle: UILabel!
 
-    @IBOutlet weak var authorBtn: UIButton!
+    @IBOutlet weak var authorBtn: XCFKitchenNavBtn!
     @IBOutlet weak var bottomTitle: UILabel!
     @IBOutlet weak var bottomDetaileTitle: UILabel!
     
@@ -64,7 +64,7 @@ class XCFKitchenRecipeCell: UITableViewCell {
             whisperLable.text = kitchenContentsModel?.whisper
             //底部
             if (kitchenContentsModel?.n_cooked != nil) {
-                bottomPeopleCount.text = "\(kitchenContentsModel!.n_cooked!)人做过"
+                bottomPeopleCount.text = "· \(kitchenContentsModel!.n_cooked!)人做过"
             }else{
                 bottomPeopleCount.text = ""
             }
@@ -75,7 +75,8 @@ class XCFKitchenRecipeCell: UITableViewCell {
             }
             if (kitchenContentsModel?.author?.photo != nil && kitchenContentsModel?.author?.photo != "") {
                 authorBtn.hidden = false
-                authorBtn.sd_setImageWithURL(NSURL.init(string: (kitchenContentsModel?.author?.photo)!), forState: UIControlState.Normal, placeholderImage: placeholderImage)
+                authorBtn.setHeaderWithURL((kitchenContentsModel?.author?.photo)!)
+                authorBtn.setTitle((kitchenContentsModel?.author?.name)!, forState: UIControlState.Normal)
             }
             if kitchenContentsModel?.title_1st != nil {
                 bottomTitle.text = kitchenContentsModel?.title_1st
@@ -106,6 +107,12 @@ class XCFKitchenRecipeCell: UITableViewCell {
             }
             self.layoutIfNeeded()
             bottomViewHeight.constant = scoreTitle.bottom
+            //如果底部的view高度为0,bottomViewHeight就不应该加10
+            if (bottomViewHeight.constant == 0) {
+                bottomViewHeight.constant = 0
+            }else{
+                bottomViewHeight.constant += 10
+            }
         }
     }
     

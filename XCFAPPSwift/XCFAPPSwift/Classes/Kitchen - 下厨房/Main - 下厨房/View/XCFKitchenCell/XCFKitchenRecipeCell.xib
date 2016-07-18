@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -81,7 +81,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My4-ho-nZh" userLabel="title2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My4-ho-nZh" userLabel="title2">
                                 <rect key="frame" x="20" y="30" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -99,11 +99,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HS-Jk-Bmw">
-                                <rect key="frame" x="540" y="-22" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HS-Jk-Bmw" customClass="XCFKitchenNavBtn" customModule="XCFAPPSwift" customModuleProvider="target">
+                                <rect key="frame" x="516" y="-30" width="88" height="88"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Mj4-8O-XHH"/>
-                                    <constraint firstAttribute="width" constant="44" id="vw9-sZ-QwD"/>
+                                    <constraint firstAttribute="height" constant="88" id="Mj4-8O-XHH"/>
+                                    <constraint firstAttribute="width" constant="88" id="vw9-sZ-QwD"/>
                                 </constraints>
                                 <state key="normal" image="placeholderImage"/>
                             </button>
@@ -112,10 +112,10 @@
                         <constraints>
                             <constraint firstItem="mZa-DQ-PgH" firstAttribute="top" secondItem="xed-lC-3tp" secondAttribute="top" constant="20" id="2Dz-ac-ToM"/>
                             <constraint firstItem="Xsl-73-XzZ" firstAttribute="top" secondItem="My4-ho-nZh" secondAttribute="bottom" constant="5" id="B7H-yH-wu0"/>
-                            <constraint firstAttribute="trailing" secondItem="4HS-Jk-Bmw" secondAttribute="trailing" constant="20" id="CIS-yQ-mdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="4HS-Jk-Bmw" secondAttribute="trailing" id="CIS-yQ-mdJ"/>
                             <constraint firstItem="6mX-kk-jpP" firstAttribute="leading" secondItem="Xsl-73-XzZ" secondAttribute="trailing" constant="5" id="LM1-cc-aTc"/>
                             <constraint firstAttribute="height" constant="100" id="P4M-C7-QkF"/>
-                            <constraint firstItem="4HS-Jk-Bmw" firstAttribute="top" secondItem="xed-lC-3tp" secondAttribute="top" constant="-22" id="Yda-XT-aH3"/>
+                            <constraint firstItem="4HS-Jk-Bmw" firstAttribute="top" secondItem="xed-lC-3tp" secondAttribute="top" constant="-30" id="Yda-XT-aH3"/>
                             <constraint firstItem="My4-ho-nZh" firstAttribute="leading" secondItem="mZa-DQ-PgH" secondAttribute="leading" id="eQf-1K-Ekb"/>
                             <constraint firstItem="mZa-DQ-PgH" firstAttribute="leading" secondItem="xed-lC-3tp" secondAttribute="leading" constant="20" id="gGw-ZO-oCh"/>
                             <constraint firstItem="Xsl-73-XzZ" firstAttribute="leading" secondItem="mZa-DQ-PgH" secondAttribute="leading" id="j7d-ZR-pj9"/>

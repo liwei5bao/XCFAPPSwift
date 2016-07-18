@@ -12,15 +12,19 @@ class XCFKitchenNavBtn: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setup()
+    }
+    
+    private func setup() {
         self.titleLabel?.font = UIFont.systemFontOfSize(12 * scaleSize)
         self.setTitleColor(UIColor.colorWithHexString("#37372e"), forState: UIControlState.Normal)
         self.titleLabel?.textAlignment = NSTextAlignment.Center
         self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {

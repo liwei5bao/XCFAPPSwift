@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		262B797F2174DEA674F1F98A /* Pods_XCFAPPSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D49222AC9415B2CB823EDA9 /* Pods_XCFAPPSwift.framework */; };
+		360FB0061D3CA8E600988938 /* XCFImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */; };
 		3614D25D1D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2591D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift */; };
 		3614D25E1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D25A1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift */; };
 		3614D25F1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D25B1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift */; };
@@ -15,6 +16,7 @@
 		3614D2621D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2611D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift */; };
 		3614D2641D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2631D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift */; };
 		36354FA51D349DF000084D1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354FA31D349DF000084D1E /* AppDelegate.swift */; };
+		366E4FCC1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */; };
 		367F04A61D34B9F80037CAB4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 367F047C1D34B9F80037CAB4 /* MJRefreshAutoFooter.m */; };
 		367F04A71D34B9F80037CAB4 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 367F047E1D34B9F80037CAB4 /* MJRefreshBackFooter.m */; };
 		367F04A81D34B9F80037CAB4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 367F04801D34B9F80037CAB4 /* MJRefreshComponent.m */; };
@@ -69,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		0D49222AC9415B2CB823EDA9 /* Pods_XCFAPPSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCFAPPSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCFImageView+Extension.swift"; sourceTree = "<group>"; };
 		3614D2591D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderNavView.swift; sourceTree = "<group>"; };
 		3614D25A1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderTopV.swift; sourceTree = "<group>"; };
 		3614D25B1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderView.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		3614D2631D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenScrollowDetailV.swift; sourceTree = "<group>"; };
 		36354FA31D349DF000084D1E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36354FA41D349DF000084D1E /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenWebViewVC.swift; sourceTree = "<group>"; };
 		367F047B1D34B9F80037CAB4 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		367F047C1D34B9F80037CAB4 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		367F047D1D34B9F80037CAB4 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -659,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				369BEB3E1D33782800E0F015 /* XCFKitchenViewController.swift */,
+				366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1030,6 +1035,7 @@
 			children = (
 				369BEB771D33782800E0F015 /* XCFBarButtonItem+Extension.swift */,
 				369BEB781D33782800E0F015 /* XCFColor+Extrnsion.swift */,
+				360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1324,12 +1330,14 @@
 				369BF7EF1D33782A00E0F015 /* XCFSearchBar.swift in Sources */,
 				367F04B51D34B9F80037CAB4 /* MJRefreshConst.m in Sources */,
 				367F04D21D34D1F20037CAB4 /* XCFConst.swift in Sources */,
+				366E4FCC1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift in Sources */,
 				369BF4F71D33782A00E0F015 /* XCFNavigationController.swift in Sources */,
 				369BF7EE1D33782A00E0F015 /* OtherUtil.swift in Sources */,
 				367F04CB1D34C87E0037CAB4 /* XCFKitchenHeaderModel.swift in Sources */,
 				367F04AC1D34B9F80037CAB4 /* MJRefreshAutoNormalFooter.m in Sources */,
 				369BF4FA1D33782A00E0F015 /* XCFColor+Extrnsion.swift in Sources */,
 				369BF4F61D33782A00E0F015 /* XCFTheme.swift in Sources */,
+				360FB0061D3CA8E600988938 /* XCFImageView+Extension.swift in Sources */,
 				36CB97811D37667E0055F067 /* XCFKitchenImageModel.swift in Sources */,
 				3614D2621D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift in Sources */,
 				367F04A71D34B9F80037CAB4 /* MJRefreshBackFooter.m in Sources */,

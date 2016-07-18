@@ -10,6 +10,8 @@ import UIKit
 import SVProgressHUD
 import MJExtension
 import SDWebImage
+import SafariServices
+import WebKit
 class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     ///cell的重用标识符
     let cellIdentifier = "XCFKitchenViewControllerCell"
@@ -24,39 +26,17 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
         let table = UITableView.init(frame: self.view.bounds, style: UITableViewStyle.Grouped)
         return table
     }()
+    
+    ///searchBar
+    var searchBar:XCFSearchBar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavgationBar()
         self.setupTableView()
-//        self.setupHeaderView()
         self.setupHeaderFooterRefresh()
         //加载网络数据
         self.loadTableViewHeaderData()
-    }
-    
-    ///MARK:-初始化导航栏
-    private func setupNavgationBar(){
-        let searchBar = XCFSearchBar.searchBarWithPlaceholder("菜谱、食材")
-        self.navigationItem.titleView = searchBar
-        ///搜索框成为第一响应者
-        weak var wself = self
-        searchBar.searchBarShouldBeginEditingBlock = {
-        
-            wself!.navigationItem.leftBarButtonItem = nil
-        }
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImageName("homepageCreateRecipeButton", target: self, action: #selector(XCFKitchenViewController.createRecipe), imageEdgeInsets: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.barButtonItemWithImageName("buylistButtonImage", target: self, action: #selector(XCFKitchenViewController.buylist), imageEdgeInsets: UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 0))
-    }
-    
-    //MARK:-初始化tableView
-    private func setupTableView(){
-        self.view.addSubview(mianTableView!)
-        self.mianTableView!.delegate = self
-        self.mianTableView?.dataSource = self
-        self.mianTableView!.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.mianTableView!.backgroundColor = UIColor.colorWithHexString(XCFCellMarginColor)
-        self.mianTableView!.registerNib(UINib.init(nibName:"XCFKitchenRecipeCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        self.mianTableView?.registerClass(XCFSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: cellSectionHeaderIdentifier)
     }
     
     //MARK:tableViewDataSource
@@ -79,10 +59,10 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
         return cell
     }
     //MARK:tableViewDeledate
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 260
-//    }
-//
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 260
+    }
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! XCFKitchenRecipeCell
         let issuseM = self.dataModelArray[indexPath.section] as! XCFKitchenIssuesModel
@@ -105,6 +85,67 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let issuesModel = self.dataModelArray[indexPath.section] as? XCFKitchenIssuesModel
+        let itemsModel = issuesModel?.items![indexPath.row] as! XCFKitchenItems
+        
+        if (itemsModel.template == XCFKitchenCellTemplate.Topic.rawValue || itemsModel.template == XCFKitchenCellTemplate.WeeklyMagazine.rawValue) { // 帖子、周刊
+            let url = itemsModel.url
+            let vc = XCFKitchenWebViewVC()
+            if (itemsModel.template == XCFKitchenCellTemplate.WeeklyMagazine.rawValue) {
+                vc.title = "周刊"
+            }else{
+                vc.title = itemsModel.contents?.title
+            }
+            vc.url = url
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if (itemsModel.template == XCFKitchenCellTemplate.RecipeList.rawValue) { // 菜单
+            
+        }
+        else if (itemsModel.template == XCFKitchenCellTemplate.Dish.rawValue) { // 作品
+            
+        }
+        else if (itemsModel.template == XCFKitchenCellTemplate.Recipe.rawValue) { // 菜谱
+            
+        }
+    }
+    //
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.endEditing()
+    }
+    
+    ///MARK:-初始化导航栏
+    private func setupNavgationBar(){
+        let searchBar = XCFSearchBar.searchBarWithPlaceholder("菜谱、食材")
+        self.navigationItem.titleView = searchBar
+        ///搜索框成为第一响应者
+        weak var wself = self
+        searchBar.searchBarShouldBeginEditingBlock = {
+            
+            wself!.navigationItem.leftBarButtonItem = nil
+        }
+        searchBar.searchBarDidSearchBlock = {
+        
+            wself?.endEditing()
+        }
+        self.searchBar = searchBar
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImageName("homepageCreateRecipeButton", target: self, action: #selector(XCFKitchenViewController.createRecipe), imageEdgeInsets: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.barButtonItemWithImageName("buylistButtonImage", target: self, action: #selector(XCFKitchenViewController.buylist), imageEdgeInsets: UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 0))
+    }
+    
+    //MARK:-初始化tableView
+    private func setupTableView(){
+        self.view.addSubview(mianTableView!)
+        self.mianTableView!.delegate = self
+        self.mianTableView?.dataSource = self
+        self.mianTableView!.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.mianTableView!.backgroundColor = UIColor.colorWithHexString(XCFCellMarginColor)
+        self.mianTableView!.registerNib(UINib.init(nibName:"XCFKitchenRecipeCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.mianTableView?.registerClass(XCFSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: cellSectionHeaderIdentifier)
+    }
+
     //MARK:- 初始化headerView
     private func setupHeaderView(){
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: XCFKitchenHeaderViewH))
@@ -132,16 +173,34 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
         self.mianTableView!.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(XCFKitchenViewController.footerRefresh))
     }
     
-    func headerRefresh(){
+    @objc private func headerRefresh(){
         self.loadNewData()
     }
     
-    func footerRefresh(){
+    @objc private func footerRefresh(){
         self.loadNewData()
     }
+    
+    //MARK:---------处理事件
+    ///创建菜谱
+    @objc private func createRecipe(){
+        print(createRecipe)
+    }
+    
+    ///菜篮子
+    @objc private func buylist(){
+        print(buylist)
+    }
+
+    ///
+    private func endEditing(){
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        self.searchBar?.text = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImageName("homepageCreateRecipeButton", target: self, action: #selector(XCFKitchenViewController.createRecipe), imageEdgeInsets: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8))
+    }
+    ///
     
     //MARK:加载网络数据的方法
-    
     ///请求最新的列表数据
     private func loadNewData(){
         weak var wself = self
@@ -176,19 +235,5 @@ class XCFKitchenViewController: UIViewController,UITableViewDataSource,UITableVi
             }
         }
     }
-    
-    //MARK:---------处理事件
-    ///创建菜谱
-    func createRecipe(){
-        
-    }
-    
-    ///菜篮子
-    func buylist(){
-    
-    }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
-    }
 }
