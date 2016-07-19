@@ -25,6 +25,7 @@ enum XCFKitchenCellTemplate:Int{
     case Recipe = 5         //菜谱
     case WeeklyMagazine = 6 //周刊
 }
+
 //MARK:屏幕的尺寸
 let screenBounds = UIScreen.mainScreen().bounds
 ///屏幕宽度
@@ -35,8 +36,6 @@ let screenHeight = screenBounds.size.height
 let scaleSize = screenWidth / 375
 ///下厨房首页headerView的高度
 let XCFKitchenHeaderViewH = 130 * scaleSize + 80 * scaleSize + 80 * scaleSize
-
-
 
 /** 下厨房 - 标题距离屏幕左边的间距 */
 let XCFRecipeCellMarginTitle:CGFloat = 15;
@@ -50,4 +49,7 @@ let XCFRecipeListViewMarginHeadTitle:CGFloat = 20;
 let XCFRecipeListViewMarginHeadTitle2Name:CGFloat = 10;
 /** 下厨房 - 菜单 - lable的最大宽度*/
 let XCFRecipeCellLableMaxWidth:CGFloat = screenWidth - 40
+/** 下厨房 - 菜谱 - 播放视频view的高度*/
+let XCFRecipeTopVideoViewHeight:CGFloat = 280 * scaleSize
+
 

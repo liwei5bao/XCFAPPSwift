@@ -55,13 +55,20 @@ class XCFKitchenRecipeCell: UITableViewCell {
             //隐藏控件
             videoBtn.hidden = true
             authorBtn.hidden = true
-            
-            //顶部View
-            imageTitle.text = kitchenContentsModel!.title
-            imageDetaileTitle.text = kitchenContentsModel?.desc
-
-            videoBtn.hidden = (kitchenContentsModel?.video_url == nil)
-            whisperLable.text = kitchenContentsModel?.whisper
+            //顶部
+            if kitchenContentsModel?.title_1st != nil {
+                imageTitle.text = kitchenContentsModel?.title_1st
+            }else{
+                imageTitle.text = ""
+            }
+            if kitchenContentsModel?.title_2nd != nil {
+                imageDetaileTitle.text = kitchenContentsModel?.title_2nd
+            }else{
+                imageDetaileTitle.text = ""
+            }
+            //底部View
+            bottomTitle.text = kitchenContentsModel!.title
+            bottomDetaileTitle.text = kitchenContentsModel?.desc
             //底部
             if (kitchenContentsModel?.n_cooked != nil) {
                 bottomPeopleCount.text = "· \(kitchenContentsModel!.n_cooked!)人做过"
@@ -78,16 +85,10 @@ class XCFKitchenRecipeCell: UITableViewCell {
                 authorBtn.setHeaderWithURL((kitchenContentsModel?.author?.photo)!)
                 authorBtn.setTitle((kitchenContentsModel?.author?.name)!, forState: UIControlState.Normal)
             }
-            if kitchenContentsModel?.title_1st != nil {
-                bottomTitle.text = kitchenContentsModel?.title_1st
-            }else{
-                bottomTitle.text = ""
-            }
-            if kitchenContentsModel?.title_2nd != nil {
-                bottomDetaileTitle.text = kitchenContentsModel?.title_2nd
-            }else{
-                bottomDetaileTitle.text = ""
-            }
+          
+            videoBtn.hidden = (kitchenContentsModel?.video_url == nil || kitchenContentsModel?.video_url == "")
+            whisperLable.text = kitchenContentsModel?.whisper
+            
             //如果没有赋值的lable那么它的margin也应该去掉
             self.layoutIfNeeded()
             if (bottomTitle.height != 0) {

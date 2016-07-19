@@ -17,6 +17,7 @@ let XCFTabBarNormalColor = UIColor.colorWithRGB(170, g: 170, b: 170)       //Tab
 let XCFTabBarSelectColor = UIColor.colorWithRGB(249, g: 103, b: 80)        //TabBar的选中的颜色
 let XCFSearchBarTintColor = UIColor.colorWithRGB(192, g: 192, b: 192)      //搜索按钮的背景色
 let XCFCellMarginColor = "#f7f8f0"                                         //tableView的背景色
+let XCFRecipeViewBackColor = "#ffffff"                                     //食谱的背景颜色
 /**
  *  全局的placeholderImage
  */

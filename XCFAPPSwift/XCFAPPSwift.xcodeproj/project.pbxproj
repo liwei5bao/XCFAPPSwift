@@ -9,12 +9,25 @@
 /* Begin PBXBuildFile section */
 		262B797F2174DEA674F1F98A /* Pods_XCFAPPSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D49222AC9415B2CB823EDA9 /* Pods_XCFAPPSwift.framework */; };
 		360FB0061D3CA8E600988938 /* XCFImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */; };
+		360FB0111D3CD71A00988938 /* XCFRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360FB00F1D3CD71A00988938 /* XCFRecipeViewController.swift */; };
 		3614D25D1D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2591D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift */; };
 		3614D25E1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D25A1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift */; };
 		3614D25F1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D25B1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift */; };
 		3614D2601D35D8AC00F554F0 /* XCFKitchenNavBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D25C1D35D8AC00F554F0 /* XCFKitchenNavBtn.swift */; };
 		3614D2621D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2611D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift */; };
 		3614D2641D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3614D2631D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift */; };
+		3624B6971D3DC383002589A9 /* XCFLable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6961D3DC383002589A9 /* XCFLable+Extension.swift */; };
+		3624B69A1D3DEFDB002589A9 /* XCFRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6991D3DEFDB002589A9 /* XCFRecipeModel.swift */; };
+		3624B69C1D3DF135002589A9 /* XCFRecipeInstructionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B69B1D3DF135002589A9 /* XCFRecipeInstructionModel.swift */; };
+		3624B69E1D3DF14E002589A9 /* XCFRecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B69D1D3DF14E002589A9 /* XCFRecipeIngredient.swift */; };
+		3624B6A21D3DF955002589A9 /* XCFRecipeStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6A11D3DF955002589A9 /* XCFRecipeStatsModel.swift */; };
+		3624B6A61D3E08FA002589A9 /* XCFDishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6A51D3E08FA002589A9 /* XCFDishModel.swift */; };
+		3624B6A81D3E096B002589A9 /* XCFDiggUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6A71D3E096B002589A9 /* XCFDiggUsers.swift */; };
+		3624B6AA1D3E0A61002589A9 /* XCFCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6A91D3E0A61002589A9 /* XCFCommentModel.swift */; };
+		3624B6AC1D3E0B68002589A9 /* XCFEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6AB1D3E0B68002589A9 /* XCFEvents.swift */; };
+		3624B6AE1D3E0BC7002589A9 /* XCFPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6AD1D3E0BC7002589A9 /* XCFPicture.swift */; };
+		3624B6B01D3E0CBE002589A9 /* XCFRecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6AF1D3E0CBE002589A9 /* XCFRecipeList.swift */; };
+		3624B6B31D3E1F61002589A9 /* XCFRecipeTopVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624B6B21D3E1F61002589A9 /* XCFRecipeTopVideoView.swift */; };
 		36354FA51D349DF000084D1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354FA31D349DF000084D1E /* AppDelegate.swift */; };
 		366E4FCC1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */; };
 		367F04A61D34B9F80037CAB4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 367F047C1D34B9F80037CAB4 /* MJRefreshAutoFooter.m */; };
@@ -72,12 +85,25 @@
 /* Begin PBXFileReference section */
 		0D49222AC9415B2CB823EDA9 /* Pods_XCFAPPSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCFAPPSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCFImageView+Extension.swift"; sourceTree = "<group>"; };
+		360FB00F1D3CD71A00988938 /* XCFRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeViewController.swift; sourceTree = "<group>"; };
 		3614D2591D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderNavView.swift; sourceTree = "<group>"; };
 		3614D25A1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderTopV.swift; sourceTree = "<group>"; };
 		3614D25B1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderView.swift; sourceTree = "<group>"; };
 		3614D25C1D35D8AC00F554F0 /* XCFKitchenNavBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenNavBtn.swift; sourceTree = "<group>"; };
 		3614D2611D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenHeaderScrollowView.swift; sourceTree = "<group>"; };
 		3614D2631D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenScrollowDetailV.swift; sourceTree = "<group>"; };
+		3624B6961D3DC383002589A9 /* XCFLable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCFLable+Extension.swift"; sourceTree = "<group>"; };
+		3624B6991D3DEFDB002589A9 /* XCFRecipeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeModel.swift; sourceTree = "<group>"; };
+		3624B69B1D3DF135002589A9 /* XCFRecipeInstructionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeInstructionModel.swift; sourceTree = "<group>"; };
+		3624B69D1D3DF14E002589A9 /* XCFRecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeIngredient.swift; sourceTree = "<group>"; };
+		3624B6A11D3DF955002589A9 /* XCFRecipeStatsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeStatsModel.swift; sourceTree = "<group>"; };
+		3624B6A51D3E08FA002589A9 /* XCFDishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFDishModel.swift; sourceTree = "<group>"; };
+		3624B6A71D3E096B002589A9 /* XCFDiggUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFDiggUsers.swift; sourceTree = "<group>"; };
+		3624B6A91D3E0A61002589A9 /* XCFCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFCommentModel.swift; sourceTree = "<group>"; };
+		3624B6AB1D3E0B68002589A9 /* XCFEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFEvents.swift; sourceTree = "<group>"; };
+		3624B6AD1D3E0BC7002589A9 /* XCFPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFPicture.swift; sourceTree = "<group>"; };
+		3624B6AF1D3E0CBE002589A9 /* XCFRecipeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeList.swift; sourceTree = "<group>"; };
+		3624B6B21D3E1F61002589A9 /* XCFRecipeTopVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFRecipeTopVideoView.swift; sourceTree = "<group>"; };
 		36354FA31D349DF000084D1E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36354FA41D349DF000084D1E /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCFKitchenWebViewVC.swift; sourceTree = "<group>"; };
@@ -192,6 +218,31 @@
 				3614D2631D35DDB500F554F0 /* XCFKitchenScrollowDetailV.swift */,
 			);
 			path = XCFKitchenHeaderView;
+			sourceTree = "<group>";
+		};
+		3624B6981D3DEFBE002589A9 /* XCFRecipeModel */ = {
+			isa = PBXGroup;
+			children = (
+				3624B6A51D3E08FA002589A9 /* XCFDishModel.swift */,
+				3624B6991D3DEFDB002589A9 /* XCFRecipeModel.swift */,
+				3624B69B1D3DF135002589A9 /* XCFRecipeInstructionModel.swift */,
+				3624B69D1D3DF14E002589A9 /* XCFRecipeIngredient.swift */,
+				3624B6A11D3DF955002589A9 /* XCFRecipeStatsModel.swift */,
+				3624B6A71D3E096B002589A9 /* XCFDiggUsers.swift */,
+				3624B6A91D3E0A61002589A9 /* XCFCommentModel.swift */,
+				3624B6AB1D3E0B68002589A9 /* XCFEvents.swift */,
+				3624B6AD1D3E0BC7002589A9 /* XCFPicture.swift */,
+				3624B6AF1D3E0CBE002589A9 /* XCFRecipeList.swift */,
+			);
+			path = XCFRecipeModel;
+			sourceTree = "<group>";
+		};
+		3624B6B11D3E1F4A002589A9 /* XCFRecipeView */ = {
+			isa = PBXGroup;
+			children = (
+				3624B6B21D3E1F61002589A9 /* XCFRecipeTopVideoView.swift */,
+			);
+			path = XCFRecipeView;
 			sourceTree = "<group>";
 		};
 		36354FA61D349E3600084D1E /* Lib */ = {
@@ -664,6 +715,7 @@
 			children = (
 				369BEB3E1D33782800E0F015 /* XCFKitchenViewController.swift */,
 				366E4FCB1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift */,
+				360FB00F1D3CD71A00988938 /* XCFRecipeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -687,6 +739,7 @@
 		369BEB411D33782800E0F015 /* resultModel */ = {
 			isa = PBXGroup;
 			children = (
+				3624B6981D3DEFBE002589A9 /* XCFRecipeModel */,
 				36CB97751D373EA70055F067 /* XCFKitchenCellModel */,
 				367F04C61D34C87E0037CAB4 /* XCFKitchenHeaderModel */,
 			);
@@ -703,6 +756,7 @@
 		369BEB431D33782800E0F015 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3624B6B11D3E1F4A002589A9 /* XCFRecipeView */,
 				36CB97721D373C560055F067 /* XCFKitchenCell */,
 				3614D2581D35D8AC00F554F0 /* XCFKitchenHeaderView */,
 			);
@@ -1036,6 +1090,7 @@
 				369BEB771D33782800E0F015 /* XCFBarButtonItem+Extension.swift */,
 				369BEB781D33782800E0F015 /* XCFColor+Extrnsion.swift */,
 				360FB0051D3CA8E600988938 /* XCFImageView+Extension.swift */,
+				3624B6961D3DC383002589A9 /* XCFLable+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1303,9 +1358,13 @@
 			files = (
 				369BF4EF1D33782A00E0F015 /* XCFBazaarController.swift in Sources */,
 				3614D25D1D35D8AC00F554F0 /* XCFKitchenHeaderNavView.swift in Sources */,
+				3624B6B01D3E0CBE002589A9 /* XCFRecipeList.swift in Sources */,
+				3624B6A81D3E096B002589A9 /* XCFDiggUsers.swift in Sources */,
 				D06415541D39C9F4000EB3C2 /* XCFSectionHeaderView.swift in Sources */,
+				3624B6AC1D3E0B68002589A9 /* XCFEvents.swift in Sources */,
 				367F04CE1D34C87E0037CAB4 /* XCFKitchenPopEventsModel.swift in Sources */,
 				367F04AB1D34B9F80037CAB4 /* MJRefreshAutoGifFooter.m in Sources */,
+				3624B6A61D3E08FA002589A9 /* XCFDishModel.swift in Sources */,
 				367F04B31D34B9F80037CAB4 /* MJRefreshStateHeader.m in Sources */,
 				36CB97831D376A0F0055F067 /* XCFKitchenAuthorModel.swift in Sources */,
 				3614D2601D35D8AC00F554F0 /* XCFKitchenNavBtn.swift in Sources */,
@@ -1316,15 +1375,19 @@
 				369BF4F81D33782A00E0F015 /* XCFTabBarController.swift in Sources */,
 				36D2F1441D38D2F900090C60 /* XCFKitchenRecipeCell.swift in Sources */,
 				369BF4F11D33782A00E0F015 /* XCFMailboxController.swift in Sources */,
+				3624B69A1D3DEFDB002589A9 /* XCFRecipeModel.swift in Sources */,
 				36354FA51D349DF000084D1E /* AppDelegate.swift in Sources */,
 				369BF4F01D33782A00E0F015 /* XCFKitchenViewController.swift in Sources */,
 				369BF4F51D33782A00E0F015 /* UIView+Extension.m in Sources */,
+				3624B6AA1D3E0A61002589A9 /* XCFCommentModel.swift in Sources */,
 				367F04AE1D34B9F80037CAB4 /* MJRefreshBackGifFooter.m in Sources */,
+				3624B69C1D3DF135002589A9 /* XCFRecipeInstructionModel.swift in Sources */,
 				3614D25F1D35D8AC00F554F0 /* XCFKitchenHeaderView.swift in Sources */,
 				367F04AD1D34B9F80037CAB4 /* MJRefreshAutoStateFooter.m in Sources */,
 				36CB977F1D375FCC0055F067 /* XCFKitchenContentsModel.swift in Sources */,
 				3614D25E1D35D8AC00F554F0 /* XCFKitchenHeaderTopV.swift in Sources */,
 				367F04B21D34B9F80037CAB4 /* MJRefreshNormalHeader.m in Sources */,
+				360FB0111D3CD71A00988938 /* XCFRecipeViewController.swift in Sources */,
 				367F04B71D34B9F80037CAB4 /* UIScrollView+MJRefresh.m in Sources */,
 				369BF4F91D33782A00E0F015 /* XCFBarButtonItem+Extension.swift in Sources */,
 				369BF7EF1D33782A00E0F015 /* XCFSearchBar.swift in Sources */,
@@ -1332,9 +1395,11 @@
 				367F04D21D34D1F20037CAB4 /* XCFConst.swift in Sources */,
 				366E4FCC1D3CA0E700A5A3FA /* XCFKitchenWebViewVC.swift in Sources */,
 				369BF4F71D33782A00E0F015 /* XCFNavigationController.swift in Sources */,
+				3624B69E1D3DF14E002589A9 /* XCFRecipeIngredient.swift in Sources */,
 				369BF7EE1D33782A00E0F015 /* OtherUtil.swift in Sources */,
 				367F04CB1D34C87E0037CAB4 /* XCFKitchenHeaderModel.swift in Sources */,
 				367F04AC1D34B9F80037CAB4 /* MJRefreshAutoNormalFooter.m in Sources */,
+				3624B6971D3DC383002589A9 /* XCFLable+Extension.swift in Sources */,
 				369BF4FA1D33782A00E0F015 /* XCFColor+Extrnsion.swift in Sources */,
 				369BF4F61D33782A00E0F015 /* XCFTheme.swift in Sources */,
 				360FB0061D3CA8E600988938 /* XCFImageView+Extension.swift in Sources */,
@@ -1342,6 +1407,7 @@
 				3614D2621D35D95E00F554F0 /* XCFKitchenHeaderScrollowView.swift in Sources */,
 				367F04A71D34B9F80037CAB4 /* MJRefreshBackFooter.m in Sources */,
 				367F04A91D34B9F80037CAB4 /* MJRefreshFooter.m in Sources */,
+				3624B6AE1D3E0BC7002589A9 /* XCFPicture.swift in Sources */,
 				36CB977B1D3743E50055F067 /* XCFKitchenIssuesModel.swift in Sources */,
 				367F04CC1D34C87E0037CAB4 /* XCFKitchenNavsModel.swift in Sources */,
 				369BF4F41D33782A00E0F015 /* UIImage+MJ.m in Sources */,
@@ -1349,6 +1415,8 @@
 				367F04AF1D34B9F80037CAB4 /* MJRefreshBackNormalFooter.m in Sources */,
 				367F04A81D34B9F80037CAB4 /* MJRefreshComponent.m in Sources */,
 				369BF7ED1D33782A00E0F015 /* XCFHttpsTool.swift in Sources */,
+				3624B6A21D3DF955002589A9 /* XCFRecipeStatsModel.swift in Sources */,
+				3624B6B31D3E1F61002589A9 /* XCFRecipeTopVideoView.swift in Sources */,
 				367F04CD1D34C87E0037CAB4 /* XCFKitchenPopEventModel.swift in Sources */,
 				367F04B11D34B9F80037CAB4 /* MJRefreshGifHeader.m in Sources */,
 				367F04A61D34B9F80037CAB4 /* MJRefreshAutoFooter.m in Sources */,

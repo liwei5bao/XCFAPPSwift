@@ -21,7 +21,7 @@ class XCFTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupChildViewControllow(XCFKitchenViewController(), title: "下厨房", image: "tabADeselected", selectImage: "tabASelected")
-        self.setupChildViewControllow(XCFKitchenViewController(), title: "市集", image: "tabBDeselected", selectImage: "tabBSelected")
+        self.setupChildViewControllow(XCFRecipeViewController(), title: "市集", image: "tabBDeselected", selectImage: "tabBSelected")
         self.setupChildViewControllow(XCFKitchenViewController(), title: "邮件", image: "tabCDeselected", selectImage: "tabCSelected")
         self.setupChildViewControllow(XCFKitchenViewController(), title: "我", image: "tabDDeselected", selectImage: "tabDSelected")
     }
